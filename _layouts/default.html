@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'zh' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+      
+      <nav class="site-nav">
+        <a href="{{ "/" | relative_url }}">首页 / Home</a>
+        <a href="{{ "/about.html" | relative_url }}">关于 / About</a>
+        <a href="{{ "/projects.html" | relative_url }}">项目 / Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.</p>
+      {% if site.social.github %}
+      <p>
+        <a href="https://github.com/{{ site.social.github }}" target="_blank">GitHub</a>
+      </p>
+      {% endif %}
+    </div>
+  </footer>
+</body>
+</html>

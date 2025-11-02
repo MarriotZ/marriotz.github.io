@@ -1,0 +1,486 @@
+---
+layout: default
+title: 关于 / About
+---
+
+<div class="about-page">
+  <div class="language-switch">
+    <a href="#" onclick="switchLang('zh')">中文</a> | 
+    <a href="#" onclick="switchLang('en')">English</a>
+  </div>
+
+  <div class="about-content">
+    <!-- 中文版本 -->
+    <div class="about-zh">
+      <div class="profile-section">
+        <div class="profile-avatar">
+          <img src="{{ "/assets/images/avatar.jpg" | relative_url }}" alt="个人头像" onerror="this.src='https://via.placeholder.com/200x200?text=Your+Photo'">
+        </div>
+        <div class="profile-info">
+          <h1>关于我</h1>
+          <p class="subtitle">全栈开发工程师 / 终身学习者</p>
+        </div>
+      </div>
+
+      <section class="intro-section">
+        <h2>👋 你好</h2>
+        <p>我是 <strong>{{ site.author.name }}</strong>，一名热爱编程和技术的开发者。</p>
+        <p>我专注于Web开发、移动应用开发，喜欢探索新技术并将它们应用到实际项目中。这个博客是我分享技术心得、项目经验和生活感悟的地方。</p>
+      </section>
+
+      <section class="skills-section">
+        <h2>💻 技能栈</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>前端开发</h3>
+            <ul>
+              <li>HTML5 / CSS3 / JavaScript</li>
+              <li>React / Vue.js</li>
+              <li>Tailwind CSS / Bootstrap</li>
+              <li>响应式设计</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>后端开发</h3>
+            <ul>
+              <li>Node.js / Python</li>
+              <li>Express / Django</li>
+              <li>RESTful API</li>
+              <li>数据库: MySQL / MongoDB</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>工具与其他</h3>
+            <ul>
+              <li>Git / GitHub</li>
+              <li>Docker</li>
+              <li>AWS / 云服务</li>
+              <li>Figma / UI设计</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section">
+        <h2>🎓 教育与经历</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 至今</div>
+            <div class="timeline-content">
+              <h3>全栈开发工程师</h3>
+              <p>XX科技公司 - 负责Web应用开发与维护</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2016 - 2020</div>
+            <div class="timeline-content">
+              <h3>计算机科学学士</h3>
+              <p>XX大学 - 主修软件工程</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="interests-section">
+        <h2>🎯 兴趣爱好</h2>
+        <div class="interests-grid">
+          <div class="interest-item">
+            <span class="interest-icon">📚</span>
+            <p>阅读技术书籍</p>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🏃</span>
+            <p>跑步健身</p>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🎮</span>
+            <p>游戏开发</p>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">✈️</span>
+            <p>旅行摄影</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <h2>📬 联系方式</h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>邮箱:</strong> 
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </div>
+          <div class="contact-item">
+            <strong>GitHub:</strong> 
+            <a href="https://github.com/{{ site.social.github }}" target="_blank">@{{ site.social.github }}</a>
+          </div>
+          {% if site.social.twitter %}
+          <div class="contact-item">
+            <strong>Twitter:</strong> 
+            <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank">@{{ site.social.twitter }}</a>
+          </div>
+          {% endif %}
+        </div>
+      </section>
+    </div>
+
+    <!-- 英文版本 -->
+    <div class="about-en" style="display:none;">
+      <div class="profile-section">
+        <div class="profile-avatar">
+          <img src="{{ "/assets/images/avatar.jpg" | relative_url }}" alt="Profile Photo" onerror="this.src='https://via.placeholder.com/200x200?text=Your+Photo'">
+        </div>
+        <div class="profile-info">
+          <h1>About Me</h1>
+          <p class="subtitle">Full-Stack Developer / Lifelong Learner</p>
+        </div>
+      </div>
+
+      <section class="intro-section">
+        <h2>👋 Hello</h2>
+        <p>I'm <strong>{{ site.author.name }}</strong>, a developer passionate about programming and technology.</p>
+        <p>I focus on Web development and mobile app development, enjoying exploring new technologies and applying them to real projects. This blog is where I share technical insights, project experiences, and life reflections.</p>
+      </section>
+
+      <section class="skills-section">
+        <h2>💻 Tech Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML5 / CSS3 / JavaScript</li>
+              <li>React / Vue.js</li>
+              <li>Tailwind CSS / Bootstrap</li>
+              <li>Responsive Design</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Backend</h3>
+            <ul>
+              <li>Node.js / Python</li>
+              <li>Express / Django</li>
+              <li>RESTful API</li>
+              <li>Database: MySQL / MongoDB</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Tools & Others</h3>
+            <ul>
+              <li>Git / GitHub</li>
+              <li>Docker</li>
+              <li>AWS / Cloud Services</li>
+              <li>Figma / UI Design</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section">
+        <h2>🎓 Education & Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - Present</div>
+            <div class="timeline-content">
+              <h3>Full-Stack Developer</h3>
+              <p>XX Tech Company - Web application development and maintenance</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2016 - 2020</div>
+            <div class="timeline-content">
+              <h3>Bachelor of Computer Science</h3>
+              <p>XX University - Major in Software Engineering</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="interests-section">
+        <h2>🎯 Interests</h2>
+        <div class="interests-grid">
+          <div class="interest-item">
+            <span class="interest-icon">📚</span>
+            <p>Reading Tech Books</p>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🏃</span>
+            <p>Running & Fitness</p>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🎮</span>
+            <p>Game Development</p>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">✈️</span>
+            <p>Travel & Photography</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <h2>📬 Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>Email:</strong> 
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </div>
+          <div class="contact-item">
+            <strong>GitHub:</strong> 
+            <a href="https://github.com/{{ site.social.github }}" target="_blank">@{{ site.social.github }}</a>
+          </div>
+          {% if site.social.twitter %}
+          <div class="contact-item">
+            <strong>Twitter:</strong> 
+            <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank">@{{ site.social.twitter }}</a>
+          </div>
+          {% endif %}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<style>
+.about-page {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.profile-avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-info h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.about-content section {
+  margin-bottom: 40px;
+}
+
+.about-content h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #3498db;
+}
+
+.intro-section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.skill-category {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.skill-category h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.skill-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-category li {
+  padding: 8px 0;
+  color: #555;
+  position: relative;
+  padding-left: 20px;
+}
+
+.skill-category li:before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #3498db;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-item:before {
+  content: '';
+  position: absolute;
+  left: -35px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3498db;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #3498db;
+}
+
+.timeline-date {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.timeline-content h3 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.timeline-content p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.interest-item {
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+  transition: transform 0.3s;
+}
+
+.interest-item:hover {
+  transform: translateY(-5px);
+}
+
+.interest-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.interest-item p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.contact-item {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+}
+
+.contact-item strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-item a {
+  color: #3498db;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .skills-grid,
+  .interests-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-page {
+    padding: 20px;
+  }
+}
+</style>
+
+<script>
+function switchLang(lang) {
+  const zhContent = document.querySelector('.about-zh');
+  const enContent = document.querySelector('.about-en');
+  
+  if (lang === 'zh') {
+    zhContent.style.display = 'block';
+    enContent.style.display = 'none';
+  } else {
+    zhContent.style.display = 'none';
+    enContent.style.display = 'block';
+  }
+  
+  localStorage.setItem('preferredLang', lang);
+}
+
+window.onload = function() {
+  const lang = localStorage.getItem('preferredLang') || 'zh';
+  if (lang === 'en') switchLang('en');
+};
+</script>

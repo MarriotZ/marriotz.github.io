@@ -1,0 +1,397 @@
+---
+layout: default
+title: 项目 / Projects
+---
+
+<div class="projects-page">
+  <div class="language-switch">
+    <a href="#" onclick="switchLang('zh')">中文</a> | 
+    <a href="#" onclick="switchLang('en')">English</a>
+  </div>
+
+  <!-- 中文版本 -->
+  <div class="projects-zh">
+    <div class="page-header">
+      <h1>我的项目</h1>
+      <p class="page-description">这里展示了我参与开发和维护的一些项目</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- 项目 1 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{{ "/assets/images/project1.jpg" | relative_url }}" alt="项目1" onerror="this.src='https://via.placeholder.com/400x250?text=Project+1'">
+          <div class="project-overlay">
+            <span class="project-status status-completed">已完成</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h2>电商网站</h2>
+          <p class="project-description">
+            一个功能完善的电商平台，支持商品浏览、购物车、在线支付等功能。采用React前端和Node.js后端架构。
+          </p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Stripe</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/project1" class="btn btn-primary" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="#" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+              </svg>
+              在线演示
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 2 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{{ "/assets/images/project2.jpg" | relative_url }}" alt="项目2" onerror="this.src='https://via.placeholder.com/400x250?text=Project+2'">
+          <div class="project-overlay">
+            <span class="project-status status-active">进行中</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h2>任务管理应用</h2>
+          <p class="project-description">
+            一个简洁高效的任务管理工具，支持项目分类、优先级设置、团队协作等功能。使用Vue.js和Firebase开发。
+          </p>
+          <div class="project-tags">
+            <span class="tag">Vue.js</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Vuex</span>
+            <span class="tag">PWA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/project2" class="btn btn-primary" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="#" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+              </svg>
+              在线演示
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 添加更多项目卡片... -->
+    </div>
+  </div>
+
+  <!-- 英文版本 -->
+  <div class="projects-en" style="display:none;">
+    <div class="page-header">
+      <h1>My Projects</h1>
+      <p class="page-description">Here are some projects I've developed and maintained</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{{ "/assets/images/project1.jpg" | relative_url }}" alt="Project 1" onerror="this.src='https://via.placeholder.com/400x250?text=Project+1'">
+          <div class="project-overlay">
+            <span class="project-status status-completed">Completed</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h2>E-commerce Website</h2>
+          <p class="project-description">
+            A full-featured e-commerce platform with product browsing, shopping cart, and online payment. Built with React frontend and Node.js backend.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Stripe</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/project1" class="btn btn-primary" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="#" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+              </svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{{ "/assets/images/project2.jpg" | relative_url }}" alt="Project 2" onerror="this.src='https://via.placeholder.com/400x250?text=Project+2'">
+          <div class="project-overlay">
+            <span class="project-status status-active">In Progress</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h2>Task Management App</h2>
+          <p class="project-description">
+            A clean and efficient task management tool with project categorization, priority settings, and team collaboration. Built with Vue.js and Firebase.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Vue.js</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Vuex</span>
+            <span class="tag">PWA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/project2" class="btn btn-primary" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="#" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+              </svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.projects-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-header h1 {
+  font-size: 42px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.page-description {
+  font-size: 18px;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 35px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.project-status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.status-completed {
+  background: #27ae60;
+  color: white;
+}
+
+.status-active {
+  background: #f39c12;
+  color: white;
+}
+
+.project-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-content h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.project-description {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background: #ecf0f1;
+  color: #2c3e50;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-primary {
+  background: #2c3e50;
+  color: white;
+  border-color: #2c3e50;
+}
+
+.btn-primary:hover {
+  background: #34495e;
+  border-color: #34495e;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.btn-secondary:hover {
+  background: #3498db;
+  color: white;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .page-header h1 {
+    font-size: 32px;
+  }
+  
+  .project-links {
+    flex-direction: column;
+  }
+  
+  .btn {
+    justify-content: center;
+  }
+}
+</style>
+
+<script>
+function switchLang(lang) {
+  const zhContent = document.querySelector('.projects-zh');
+  const enContent = document.querySelector('.projects-en');
+  
+  if (lang === 'zh') {
+    zhContent.style.display = 'block';
+    enContent.style.display = 'none';
+  } else {
+    zhContent.style.display = 'none';
+    enContent.style.display = 'block';
+  }
+  
+  localStorage.setItem('preferredLang', lang);
+}
+
+window.onload = function() {
+  const lang = localStorage.getItem('preferredLang') || 'zh';
+  if (lang === 'en') switchLang('en');
+};
+</script>

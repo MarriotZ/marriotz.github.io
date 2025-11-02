@@ -1,0 +1,42 @@
+# 网站设置
+title: 我的博客
+email: zihantsang@hotmail.com
+description: >-
+  一个支持中英文的个人博客
+baseurl: ""
+url: "https://marriotz.github.io"
+
+# 构建设置
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# 默认语言
+lang: zh
+
+# 永久链接格式
+permalink: /:categories/:year/:month/:day/:title/
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - README.md
+
+# 分页
+paginate: 10
+paginate_path: "/page:num/"
+
+# 作者信息
+author:
+  name: MarriotZ
+  email: your-email@example.com
+  bio: 一个热爱分享的开发者
+
+# 社交媒体
+social:
+  github: MarriotZ
+  twitter: your_twitter_username

@@ -1,0 +1,46 @@
+---
+layout: default
+title: 首页
+---
+
+<div class="language-switch">
+  <a href="#" onclick="switchLang('zh')">中文</a> | 
+  <a href="#" onclick="switchLang('en')">English</a>
+</div>
+
+<div class="home">
+  <h1 class="page-heading" data-zh="最新文章" data-en="Latest Posts">最新文章</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <span class="post-lang">[{{ post.lang }}]</span>
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h2>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe" data-zh="订阅" data-en="Subscribe">
+    订阅 <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+  </p>
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('[data-zh]').forEach(el => {
+    el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
+  });
+  localStorage.setItem('preferredLang', lang);
+}
+
+window.onload = function() {
+  const lang = localStorage.getItem('preferredLang') || 'zh';
+  if (lang === 'en') switchLang('en');
+};
+</script>
