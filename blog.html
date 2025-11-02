@@ -1,0 +1,407 @@
+---
+layout: default
+title: 博客文章 / Blog Posts
+---
+
+<div class="blog-page">
+  <div class="blog-header">
+    <h1 class="page-title" data-zh="博客文章" data-en="Blog Posts">博客文章</h1>
+    <p class="page-subtitle" data-zh="记录成长，分享知识" data-en="Recording Growth, Sharing Knowledge">记录成长，分享知识</p>
+  </div>
+
+  <div class="blog-controls">
+    <div class="language-switch">
+      <a href="#" onclick="switchLang('zh')" class="lang-btn" data-lang="zh">中文</a>
+      <span class="lang-separator">|</span>
+      <a href="#" onclick="switchLang('en')" class="lang-btn" data-lang="en">English</a>
+    </div>
+    
+    <div class="filter-controls">
+      <button class="filter-btn active" onclick="filterPosts('all')" data-zh="全部" data-en="All">全部</button>
+      <button class="filter-btn" onclick="filterPosts('zh')" data-zh="中文" data-en="Chinese">中文</button>
+      <button class="filter-btn" onclick="filterPosts('en')" data-zh="英文" data-en="English">英文</button>
+    </div>
+  </div>
+
+  <div class="posts-timeline">
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year_group in posts_by_year %}
+    <div class="year-group">
+      <h2 class="year-title">{{ year_group.name }}</h2>
+      <div class="posts-list">
+        {% for post in year_group.items %}
+        <article class="post-item" data-lang="{{ post.lang }}">
+          <div class="post-item-date">
+            <span class="month-day">{{ post.date | date: "%m-%d" }}</span>
+          </div>
+          <div class="post-item-content">
+            <h3 class="post-item-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <span class="post-item-lang">{{ post.lang | upcase }}</span>
+            </h3>
+            <p class="post-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+            <div class="post-item-meta">
+              {% if post.categories %}
+              <span class="post-categories">
+                {% for category in post.categories %}
+                <span class="category-tag">{{ category }}</span>
+                {% endfor %}
+              </span>
+              {% endif %}
+              <a href="{{ post.url | relative_url }}" class="post-read-more" data-zh="阅读全文" data-en="Read More">阅读全文</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="rss-section">
+    <p data-zh="通过 RSS 订阅获取最新文章" data-en="Subscribe via RSS for latest posts">
+      通过 RSS 订阅获取最新文章
+    </p>
+    <a href="{{ "/feed.xml" | relative_url }}" class="rss-btn">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M3.75 3.75v2.5A10.003 10.003 0 0113.75 16.25h2.5C16.25 8.87 10.13 2.75 2.75 2.75h-1z"/>
+        <path d="M3.75 8.75v2.5c2.75 0 5 2.25 5 5h2.5A7.502 7.502 0 003.75 8.75z"/>
+        <circle cx="5" cy="15" r="2"/>
+      </svg>
+      RSS Feed
+    </a>
+  </div>
+</div>
+
+<style>
+.blog-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.page-title {
+  font-size: 42px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.language-switch {
+  background: white;
+  border-radius: 50px;
+  display: inline-flex;
+  gap: 10px;
+  padding: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lang-btn {
+  padding: 8px 20px;
+  border-radius: 25px;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.lang-separator {
+  color: #ddd;
+  line-height: 36px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 10px;
+  background: white;
+  padding: 8px;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  color: #666;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.posts-timeline {
+  margin-bottom: 60px;
+}
+
+.year-group {
+  margin-bottom: 50px;
+}
+
+.year-title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  border-left: 4px solid #667eea;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.post-item {
+  display: flex;
+  gap: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  border: 1px solid #f0f0f0;
+}
+
+.post-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.post-item-date {
+  flex-shrink: 0;
+  width: 80px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.month-day {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.post-item-content {
+  flex: 1;
+}
+
+.post-item-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-item-title a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.post-item-title a:hover {
+  color: #667eea;
+}
+
+.post-item-lang {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #666;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.post-item-excerpt {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.post-item-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.post-categories {
+  display: flex;
+  gap: 8px;
+}
+
+.category-tag {
+  background: #e8f4fd;
+  color: #2980b9;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.post-read-more {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.post-read-more:hover {
+  color: #764ba2;
+  transform: translateX(5px);
+  display: inline-block;
+}
+
+.rss-section {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 20px;
+}
+
+.rss-section p {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.rss-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  color: #e67e22;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.rss-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(230, 126, 34, 0.3);
+  background: #e67e22;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-controls {
+    flex-direction: column;
+  }
+  
+  .post-item {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .post-item-date {
+    width: auto;
+    text-align: left;
+  }
+  
+  .month-day {
+    font-size: 13px;
+  }
+  
+  .page-title {
+    font-size: 32px;
+  }
+}
+</style>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('[data-zh]').forEach(el => {
+    el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
+  });
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.dataset.lang === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  
+  localStorage.setItem('preferredLang', lang);
+}
+
+function filterPosts(lang) {
+  const posts = document.querySelectorAll('.post-item');
+  const buttons = document.querySelectorAll('.filter-btn');
+  
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  posts.forEach(post => {
+    if (lang === 'all' || post.dataset.lang === lang) {
+      post.style.display = 'flex';
+    } else {
+      post.style.display = 'none';
+    }
+  });
+}
+
+window.onload = function() {
+  const lang = localStorage.getItem('preferredLang') || 'zh';
+  switchLang(lang);
+};
+</script>

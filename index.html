@@ -3,44 +3,413 @@ layout: default
 title: 首页
 ---
 
-<div class="language-switch">
-  <a href="#" onclick="switchLang('zh')">中文</a> | 
-  <a href="#" onclick="switchLang('en')">English</a>
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title" data-zh="欢迎来到我的博客" data-en="Welcome to My Blog">欢迎来到我的博客</h1>
+    <p class="hero-subtitle" data-zh="分享技术、思考与生活" data-en="Sharing Technology, Thoughts & Life">分享技术、思考与生活</p>
+    <div class="hero-buttons">
+      <a href="/blog.html" class="btn-hero btn-primary" data-zh="浏览文章" data-en="Browse Articles">浏览文章</a>
+      <a href="/about.html" class="btn-hero btn-secondary" data-zh="了解更多" data-en="Learn More">了解更多</a>
+    </div>
+  </div>
 </div>
 
-<div class="home">
-  <h1 class="page-heading" data-zh="最新文章" data-en="Latest Posts">最新文章</h1>
+<div class="home-content">
+  <div class="language-switch">
+    <a href="#" onclick="switchLang('zh')" class="lang-btn" data-lang="zh">中文</a>
+    <span class="lang-separator">|</span>
+    <a href="#" onclick="switchLang('en')" class="lang-btn" data-lang="en">English</a>
+  </div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-        <span class="post-lang">[{{ post.lang }}]</span>
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h2>
-        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-      </li>
-    {% endfor %}
-  </ul>
+  <section class="latest-posts">
+    <h2 class="section-title" data-zh="最新文章" data-en="Latest Posts">最新文章</h2>
+    <div class="posts-grid">
+      {% for post in site.posts limit:3 %}
+      <article class="post-card">
+        <div class="post-card-header">
+          <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          <span class="post-lang-badge">{{ post.lang | upcase }}</span>
+        </div>
+        <h3 class="post-card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h3>
+        <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        <a href="{{ post.url | relative_url }}" class="read-more" data-zh="阅读更多 →" data-en="Read More →">阅读更多 →</a>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="view-all">
+      <a href="/blog.html" class="btn-view-all" data-zh="查看所有文章" data-en="View All Posts">查看所有文章</a>
+    </div>
+  </section>
 
-  <p class="rss-subscribe" data-zh="订阅" data-en="Subscribe">
-    订阅 <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
-  </p>
+  <section class="features">
+    <h2 class="section-title" data-zh="博客特色" data-en="Blog Features">博客特色</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3 data-zh="双语支持" data-en="Bilingual">双语支持</h3>
+        <p data-zh="支持中英文切换，照顾不同语言读者" data-en="Support for Chinese and English readers">支持中英文切换，照顾不同语言读者</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <h3 data-zh="技术分享" data-en="Tech Sharing">技术分享</h3>
+        <p data-zh="分享编程技术、项目经验与心得" data-en="Share programming skills and project experiences">分享编程技术、项目经验与心得</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3 data-zh="精美设计" data-en="Beautiful Design">精美设计</h3>
+        <p data-zh="简洁优雅的界面，流畅的阅读体验" data-en="Clean interface with smooth reading experience">简洁优雅的界面，流畅的阅读体验</p>
+      </div>
+    </div>
+  </section>
 </div>
+
+<style>
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 80px 20px;
+  text-align: center;
+  margin: -40px -20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+.btn-hero {
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-hero.btn-primary {
+  background: white;
+  color: #667eea;
+}
+
+.btn-hero.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-hero.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-hero.btn-secondary:hover {
+  background: white;
+  color: #667eea;
+}
+
+/* Language Switch */
+.language-switch {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 12px;
+  background: white;
+  border-radius: 50px;
+  display: inline-flex;
+  gap: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lang-btn {
+  padding: 8px 20px;
+  border-radius: 25px;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.lang-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.lang-separator {
+  color: #ddd;
+  line-height: 36px;
+}
+
+/* Posts Grid */
+.latest-posts {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.post-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  border: 1px solid #f0f0f0;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.post-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.post-date {
+  color: #999;
+  font-size: 14px;
+}
+
+.post-lang-badge {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.post-card-title {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.post-card-title a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.post-card-title a:hover {
+  color: #667eea;
+}
+
+.post-card-excerpt {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.read-more {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.read-more:hover {
+  color: #764ba2;
+  transform: translateX(5px);
+  display: inline-block;
+}
+
+.view-all {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-view-all {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 14px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.btn-view-all:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Features Section */
+.features {
+  background: #f8f9fa;
+  padding: 60px 20px;
+  margin: 0 -20px;
+  border-radius: 20px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 
 <script>
 function switchLang(lang) {
+  // Update text content
   document.querySelectorAll('[data-zh]').forEach(el => {
     el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
   });
+  
+  // Update active language button
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.dataset.lang === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  
   localStorage.setItem('preferredLang', lang);
 }
 
 window.onload = function() {
   const lang = localStorage.getItem('preferredLang') || 'zh';
-  if (lang === 'en') switchLang('en');
+  switchLang(lang);
 };
 </script>
